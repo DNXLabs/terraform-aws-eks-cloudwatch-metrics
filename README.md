@@ -20,6 +20,44 @@ module "cloudwatch_metrics" {
 
 <!--- BEGIN_TF_DOCS --->
 
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.13 |
+| aws | >= 3.13, < 4.0 |
+| helm | >= 1.0, < 1.4.0 |
+| kubernetes | >= 1.10.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| aws | >= 3.13, < 4.0 |
+| helm | >= 1.0, < 1.4.0 |
+| kubernetes | >= 1.10.0 |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| cluster\_identity\_oidc\_issuer | The OIDC Identity issuer for the cluster. | `string` | n/a | yes |
+| cluster\_identity\_oidc\_issuer\_arn | The OIDC Identity issuer ARN for the cluster that can be used to associate IAM roles with a service account. | `string` | n/a | yes |
+| cluster\_name | The name of the cluster. | `string` | n/a | yes |
+| create\_namespace | Whether to create Kubernetes namespace with name defined by `namespace`. | `bool` | `true` | no |
+| enabled | Variable indicating whether deployment is enabled. | `bool` | `true` | no |
+| helm\_chart\_name | CloudWatch Agent Helm chart name. | `string` | `"aws-cloudwatch-metrics"` | no |
+| helm\_chart\_release\_name | CloudWatch Agent Helm release name. | `string` | `"aws-cloudwatch-metrics"` | no |
+| helm\_chart\_repo | CloudWatch Agent Helm repository name. | `string` | `"https://aws.github.io/eks-charts"` | no |
+| helm\_chart\_version | CloudWatch Agent Helm chart version. | `string` | `"0.0.1"` | no |
+| mod\_dependency | Dependence variable binds all AWS resources allocated by this module, dependent modules reference this variable. | `any` | `null` | no |
+| namespace | Kubernetes namespace to deploy CloudWatch Agent Helm chart. | `string` | `"amazon-cloudwatch"` | no |
+| service\_account\_name | cloudwatch-metrics service account name. | `string` | `"aws-cloudwatch-metrics"` | no |
+| worker\_iam\_role\_name | IAM role name for EKS worker groups. | `string` | n/a | yes |
+
+## Outputs
+
+No output.
 
 <!--- END_TF_DOCS --->
 
