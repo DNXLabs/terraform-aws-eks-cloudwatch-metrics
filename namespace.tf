@@ -5,4 +5,8 @@ resource "kubernetes_namespace" "cloudwatch_metrics" {
   metadata {
     name = var.namespace
   }
+  
+  lifecycle {
+    ignore_changes        = [tags]
+  }
 }
