@@ -39,7 +39,7 @@ variable "helm_chart_repo" {
 
 variable "helm_chart_version" {
   type        = string
-  default     = "0.0.1"
+  default     = "0.0.4"
   description = "CloudWatch Agent Helm chart version."
 }
 
@@ -51,7 +51,7 @@ variable "create_namespace" {
 
 variable "namespace" {
   type        = string
-  default     = "amazon-cloudwatch"
+  default     = "aws-cloudwatch-metrics"
   description = "Kubernetes namespace to deploy CloudWatch Agent Helm chart."
 }
 
@@ -69,4 +69,10 @@ variable "mod_dependency" {
 variable "worker_iam_role_name" {
   type        = string
   description = "IAM role name for EKS worker groups."
+}
+
+variable "settings" {
+  type        = map(any)
+  default     = {}
+  description = "Additional settings which will be passed to the Helm chart values."
 }

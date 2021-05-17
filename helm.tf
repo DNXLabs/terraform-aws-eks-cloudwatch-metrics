@@ -16,4 +16,13 @@ resource "helm_release" "cloudwatch_metrics" {
     name  = "serviceAccount.name"
     value = var.service_account_name
   }
+
+  dynamic "set" {
+    for_each = var.settings
+
+    content {
+      name  = set.key
+      value = set.value
+    }
+  }
 }
