@@ -26,16 +26,16 @@ module "cloudwatch_metrics" {
 |------|---------|
 | terraform | >= 0.13 |
 | aws | >= 3.13, < 4.0 |
-| helm | >= 1.0, < 1.4.0 |
-| kubernetes | >= 1.10.0 |
+| helm | >= 1.0, < 3.0 |
+| kubernetes | >= 1.10.0, < 3.0.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | aws | >= 3.13, < 4.0 |
-| helm | >= 1.0, < 1.4.0 |
-| kubernetes | >= 1.10.0 |
+| helm | >= 1.0, < 3.0 |
+| kubernetes | >= 1.10.0, < 3.0.0 |
 
 ## Inputs
 
@@ -49,10 +49,11 @@ module "cloudwatch_metrics" {
 | helm\_chart\_name | CloudWatch Agent Helm chart name. | `string` | `"aws-cloudwatch-metrics"` | no |
 | helm\_chart\_release\_name | CloudWatch Agent Helm release name. | `string` | `"aws-cloudwatch-metrics"` | no |
 | helm\_chart\_repo | CloudWatch Agent Helm repository name. | `string` | `"https://aws.github.io/eks-charts"` | no |
-| helm\_chart\_version | CloudWatch Agent Helm chart version. | `string` | `"0.0.1"` | no |
+| helm\_chart\_version | CloudWatch Agent Helm chart version. | `string` | `"0.0.4"` | no |
 | mod\_dependency | Dependence variable binds all AWS resources allocated by this module, dependent modules reference this variable. | `any` | `null` | no |
-| namespace | Kubernetes namespace to deploy CloudWatch Agent Helm chart. | `string` | `"amazon-cloudwatch"` | no |
+| namespace | Kubernetes namespace to deploy CloudWatch Agent Helm chart. | `string` | `"aws-cloudwatch-metrics"` | no |
 | service\_account\_name | cloudwatch-metrics service account name. | `string` | `"aws-cloudwatch-metrics"` | no |
+| settings | Additional settings which will be passed to the Helm chart values. | `map(any)` | `{}` | no |
 | worker\_iam\_role\_name | IAM role name for EKS worker groups. | `string` | n/a | yes |
 
 ## Outputs
