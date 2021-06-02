@@ -72,7 +72,6 @@ variable "worker_iam_role_name" {
 }
 
 variable "settings" {
-  type        = map(any)
   default     = {}
   description = "Additional settings which will be passed to the Helm chart values."
 }
