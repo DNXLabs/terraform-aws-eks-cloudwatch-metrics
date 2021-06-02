@@ -53,7 +53,7 @@ module "cloudwatch_metrics" {
 | mod\_dependency | Dependence variable binds all AWS resources allocated by this module, dependent modules reference this variable. | `any` | `null` | no |
 | namespace | Kubernetes namespace to deploy CloudWatch Agent Helm chart. | `string` | `"aws-cloudwatch-metrics"` | no |
 | service\_account\_name | cloudwatch-metrics service account name. | `string` | `"aws-cloudwatch-metrics"` | no |
-| settings | Additional settings which will be passed to the Helm chart values. | `map(any)` | `{}` | no |
+| settings | Additional settings which will be passed to the Helm chart values. | `map` | `{}` | no |
 | worker\_iam\_role\_name | IAM role name for EKS worker groups. | `string` | n/a | yes |
 
 ## Outputs
