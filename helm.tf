@@ -17,12 +17,8 @@ resource "helm_release" "cloudwatch_metrics" {
     value = var.service_account_name
   }
 
-  dynamic "set" {
-    for_each = var.settings
+  values = [
+    yamlencode(var.settings)
+  ]
 
-    content {
-      name  = set.key
-      value = set.value
-    }
-  }
 }
